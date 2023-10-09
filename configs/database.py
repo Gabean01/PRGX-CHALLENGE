@@ -1,12 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from configs.enviroment import get_enviroment_variables
+from configs.environment import get_enviroment_variables
 
 # Runtime Environment Configuration
 env = get_enviroment_variables()
 
-# Generate Database URL
+# Generate Database URLs
 #DATABASE_URL = f"{env.DATABASE_DIALECT}://{env.DATABASE_USERNAME}:{env.DATABASE_PASSWORD}@{env.DATABASE_HOSTNAME}:{env.DATABASE_PORT}/{env.DATABASE_NAME}"
 SQLALCHEMY_DATABASE_URL = 'sqlite:///./sql_app.db'
 
