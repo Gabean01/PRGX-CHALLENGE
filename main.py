@@ -8,21 +8,19 @@ from fastapi.openapi.utils import get_openapi
 
 from starlette.staticfiles import StaticFiles
 
-
-from configs.environment import get_environment_variables
+from models.BaseModel import init
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
 
-#Application Environment Configuration
-env = get_environment_variables()
+
 
 
 # Core Application Instance
 app = FastAPI(
-    title=env.APP_NAME,
-    version=env.API_VERSION
+    title='fastapi-prgx-challenge-backend',
+    version='1.0.0'
 )
 
 static_files_app = StaticFiles(directory=".")
@@ -32,7 +30,7 @@ app.mount(path="/static", app=static_files_app, name="static")
 
 
 # Initialise Data Model Attributes
-
+init()
 
 def custom_openapi():
     if app.openapi_schema:
