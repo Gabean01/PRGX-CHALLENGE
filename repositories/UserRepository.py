@@ -63,15 +63,16 @@ class UsersRepository:
                 userAddress = UsersAddress(user_id=user.id, address_id=address_db.id)
                 self.db.add(userAddress)
 
-                self.db.commit()
-                 self.db.refresh(user)
+        self.db.commit()
+        self.db.refresh(user)
         return user
 
     def update(self, id: int, users: Users) -> Users:
         users.id = id
-         self.db.merge(users)
+        self.db.merge(users)
         self.db.commit()
         return users
+        
     def delete(self, users: Users) -> None:
         self.db.delete(users)
         self.db.commit()

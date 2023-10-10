@@ -9,6 +9,9 @@ from fastapi.openapi.utils import get_openapi
 from starlette.staticfiles import StaticFiles
 
 from models.BaseModel import init
+from routers.v1.AddresRouter import AddressRouter
+from routers.v1.UsersRouter import UsersRouter
+from routers.v1.ChallengeRouter import ChallengeRouter
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
@@ -27,7 +30,9 @@ static_files_app = StaticFiles(directory=".")
 app.mount(path="/static", app=static_files_app, name="static")
 
 # Add Routers
-
+app.include_router(AddressRouter)
+app.include_router(UsersRouter)
+app.include_router(ChallengeRouter)
 
 # Initialise Data Model Attributes
 init()

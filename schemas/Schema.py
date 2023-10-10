@@ -20,4 +20,4 @@ class UsersSchema(BaseModel):
 
 class ChallengeSchema(BaseModel):
     user: UsersSchema
-    addresses: List[AddressSchema] = []
+    addresses: List[AddressSchema]
