@@ -3,7 +3,7 @@ from typing import List, Optional
 from fastapi import Depends
 from models.UsersModel import Users
 from repositories.UsersRepository import UsersRepository
-from schemas.Schema import UsersSchema
+from schemas.Schema import UsersSchema, ChallengeSchema
 
 class UsersService:
     usersRepository: UsersRepository
@@ -13,15 +13,8 @@ class UsersService:
     ) -> None:
         self.usersRepository = usersRepository
 
-    def create(self, users_body: UsersSchema) -> Users:
-        return self.usersRepository.create(
-            Users(
-                    firts_name=users_body.firts_name,
-                    last_name=users_body.last_name,
-                    email=users_body.email, 
-                    password=users_body.password,
-                )
-        )
+    def create(self, users_body: ChallengeSchema):
+        return self.usersRepository.create(users_body)
 
     def delete(self, users_id: int) -> None:
         return self.usersRepository.delete(

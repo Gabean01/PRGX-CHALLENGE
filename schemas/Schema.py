@@ -15,4 +15,9 @@ class UsersSchema(BaseModel):
     last_name: str
     email: str
     password: str
-    #addressess: List[AddressSchema]
+  #addressess: List[AddressSchema]
+
+
+class ChallengeSchema(BaseModel):
+    user: UsersSchema
+    addresses: List[AddressSchema] = []

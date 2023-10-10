@@ -5,6 +5,7 @@ from fastapi_cache.decorator import cache
 
 from schemas.Schema import (
     UsersSchema,
+    ChallengeSchema
 )
 
 from services.UsersService import UsersService
@@ -42,11 +43,10 @@ async def get(id: int, usersService: UsersService = Depends()):
     status_code=status.HTTP_201_CREATED,
 )
 def create(
-    users: UsersSchema,
+    data: ChallengeSchema,
     usersService: UsersService = Depends(),
 ):
-    return usersService.create(users).normalize()
-
+    return usersService.create(data).normalize()
 
 @UsersRouter.patch("/{id}", response_model=UsersSchema)
 def update(

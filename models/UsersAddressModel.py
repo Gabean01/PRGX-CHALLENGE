@@ -15,8 +15,7 @@ class UsersAddress(EntityMeta):
 
     user_id = Column(ForeignKey('users.id'), primary_key=True)
     address_id = Column(ForeignKey('address.id'), primary_key=True)
-    blurb = Column(String, nullable=False)
-    user = relationship("Users", back_populates="address")
+    user = relationship("Users", back_populates="addresses")
     address = relationship("Address", back_populates="users")
 
     # proxies
