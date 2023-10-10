@@ -17,6 +17,7 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+Base.metadata.create_all(Engine)
 
 def get_db_connection():
     db = scoped_session(SessionLocal)
