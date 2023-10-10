@@ -12,6 +12,7 @@ starlette = "*"
 pydantic-settings = "*"
 fastapi-cache = "*"
 fastapi-cache2 = "*"
+numpy = "*"
 
 [dev-packages]
 

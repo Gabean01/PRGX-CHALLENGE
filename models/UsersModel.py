@@ -5,6 +5,7 @@ from sqlalchemy import(
     Integer,
     PrimaryKeyConstraint,
     String,
+    DateTime
 )
 
 from models.BaseModel import EntityMeta
