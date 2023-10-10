@@ -20,7 +20,7 @@ async def index(
     name: Optional[str] = None,
     pageSize: Optional[int] = 100,
     startIndex: Optional[int] = 0,
-    usersService: AddressService = Depends(),
+    addressService: AddressService = Depends(),
 ):
     return [
         address.normalize()
