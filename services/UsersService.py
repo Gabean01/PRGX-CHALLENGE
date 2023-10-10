@@ -13,7 +13,7 @@ class UsersService:
     ) -> None:
         self.usersRepository = usersRepository
 
-    def create(self, users_body: ChallengeSchema):
+    def create(self, users_body: ChallengeSchema) -> Users:
         return self.usersRepository.create(users_body)
 
     def delete(self, users_id: int) -> None:
