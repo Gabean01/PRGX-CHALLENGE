@@ -9,7 +9,7 @@ from fastapi.openapi.utils import get_openapi
 from starlette.staticfiles import StaticFiles
 
 from models.BaseModel import init
-from routers.v1.AddresRouter import AddressRouter
+from routers.v1.AddressRouter import AddressRouter
 from routers.v1.UsersRouter import UsersRouter
 from routers.v1.ChallengeRouter import ChallengeRouter
 

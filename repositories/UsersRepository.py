@@ -42,7 +42,7 @@ class UsersRepository:
             users.id,
         )
 
-        def create(self, data: ChallengeSchema) -> Users:
+    def create(self, data: ChallengeSchema) -> Users:
         user = Users(
                 firts_name=data.user.firts_name,
                 last_name=data.user.last_name,
