@@ -15,13 +15,30 @@ class TestChallengeService(TestCase):
 
     
     @patch(
-        "schemas.pydantic.ChallengeSchema.ChallengeSchema",
+        "schemas.Schema.UsersSchema",
+        "schemas.Schema.ChallengeSchema",
+        "schemas.Schema.AddressSchema",
         autospec=True,
     )
-    def test_create(self, ChallengeSchema):
+    def test_create(self, ChallengeSchema, UsersSchema, AddressSchema):
         challenge = ChallengeSchema()
-        challenge.users = "Gary"
-        challenge.address = "Tv 53a #65-70"
+        user = UsersSchema()
+        address = AddressSchema()
+
+        user.firts_name = "Gary"
+        user.last_name = "Bean"
+        user.email = "gbeanrenteria@gmail.com"
+        user.password ="123456789"
+
+        address.address_1 = "Tv 53a #65-70"
+        address.address_2 = "T1 AP 1506"
+        address.city = "Medellin"
+        address.state ="Antioquia"
+        address.zip ="050031"
+        address.state ="Colombia"
+
+        challenge.user = user
+        challenge.address = address
         
 
         self.challengeService.create(challenge)

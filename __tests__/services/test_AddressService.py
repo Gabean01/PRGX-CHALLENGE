@@ -15,7 +15,7 @@ class TestAddressService(TestCase):
 
     
     @patch(
-        "schemas.pydantic.AddressSchema.AddressSchema",
+        "schemas.Schema.AddressSchema",
         autospec=True,
     )
     def test_create(self, AddressSchema):
@@ -58,15 +58,15 @@ class TestAddressService(TestCase):
 
 
     @patch(
-        "schemas.pydantic.UsersSchema.UserSchema",
+        "schemas.Schema.AddressSchema",
         autospec=True,
     )      
-    def test_update(self, UsersSchema):
-        users = UsersSchema()
-        users.firts_name = "Alexander"
+    def test_update(self, AddressSchema):
+        address = AddressSchema()
+        address.city = "Bogota D.C"
 
-        self.usersService.update(
-            users_id=1, users_body=users
+        self.addressService.update(
+            address_id=1, address_body=address
         )
         # Should call update method on Product Repository
-        self.productRepository.update.assert_called_once()
+        self.addressRepository.update.assert_called_once()

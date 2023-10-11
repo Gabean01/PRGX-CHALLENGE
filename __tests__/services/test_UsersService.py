@@ -15,7 +15,7 @@ class TestUsersService(TestCase):
 
     
     @patch(
-        "schemas.pydantic.UsersSchema.UsersSchema",
+        "schemas.Schema.UsersSchema",
         autospec=True,
     )
     def test_create(self, UsersSchema):
@@ -56,7 +56,7 @@ class TestUsersService(TestCase):
 
 
     @patch(
-        "schemas.pydantic.UsersSchema.UserSchema",
+        "schemas.Schema.UsersSchema",
         autospec=True,
     )      
     def test_update(self, UsersSchema):

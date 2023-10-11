@@ -22,7 +22,7 @@ class TestAddressRepository(TestCase):
                     address_2 = "t1 ap 1506",
                     city = "Medellin",
                     state = "Antioquia",
-                    zip = "050031"
+                    zip = "050031",
                     country = "Colombia"
                 )
         self.addressRepository.create(address)
