@@ -47,3 +47,9 @@ For Testing, `unittest` module is used for Test Suite and Assertion, whereas `py
   ```
 
 ## Screenshots
+
+![alt text](https://github.com/Gabean01/prgx-fastapi-backend-challenge/blob/main/resources/swagger_one.PNG)
+
+![alt text](https://github.com/Gabean01/prgx-fastapi-backend-challenge/blob/main/resources/swagger_two.PNG)
+
+![alt text](https://github.com/Gabean01/prgx-fastapi-backend-challenge/blob/main/resources/postman.PNG)
