@@ -14,6 +14,7 @@ fastapi-cache = "*"
 fastapi-cache2 = "*"
 numpy = "*"
 pytest = "*"
+orjson = "*"
 
 [dev-packages]
 

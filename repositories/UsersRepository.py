@@ -41,6 +41,9 @@ class UsersRepository:
             Users,
             users.id,
         )
+    
+    def getByEmail(self, email: str) -> Users:
+        return self.db.query(Users).filter(Users.email == email).first()
 
     def create(self, data: ChallengeSchema) -> Users:
         user = Users(

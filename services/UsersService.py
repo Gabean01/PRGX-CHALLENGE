@@ -26,6 +26,10 @@ class UsersService:
             Users(id=users_id)
         )
 
+    def getByEmail(self, users_email: str) -> bool:
+        isCreated = self.usersRepository.getByEmail(users_email) 
+        return isCreated is not None
+
     def list(
         self,
         name: Optional[str] = None,

@@ -2,6 +2,8 @@ from typing import List, Optional
 
 from fastapi import APIRouter, Depends, status
 from fastapi_cache.decorator import cache
+from fastapi.responses import ORJSONResponse
+
 
 from schemas.Schema import (
     UsersSchema,
@@ -46,6 +48,12 @@ def create(
     data: ChallengeSchema,
     usersService: UsersService = Depends(),
 ):
+    user : UsersSchema = data.user
+    isEmailCreated = usersService.getByEmail(user.email)
+
+    if isEmailCreated:
+        return ORJSONResponse(content= {"message": "Email registered"}, status_code= status.HTTP_409_CONFLICT)
+    
     return usersService.create(data).normalize()
 
 @UsersRouter.patch("/{id}", response_model=UsersSchema)
